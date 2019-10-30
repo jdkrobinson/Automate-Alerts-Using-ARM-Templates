@@ -6,8 +6,8 @@ Have you ever had the tedious task of creating multiple alerts for all of the re
 
 I have a PowerShell Script that can Target and Create specific metric alerts for the resources you define inside of the script. First make sure you have imported the following modules into PowerShell:
 
--	AzureRM
--	AzureRM.Insights
+-	Az
+-	Az.Monitor
 
 Next, lets create two JSON files, one will be parameters.json and the other template.json, lets put them in a local folder.
 

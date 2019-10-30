@@ -29,8 +29,14 @@
                        "timeAggregation":  {
                                                "value":  "NULL"
                                            },
+                       "windowSize":  {
+                                             "value":  "NULL"
+                                         },
+                       "evaluationFrequency":  {
+                                             "value":  "NULL"
+                                         },
                        "actionGroupId":  {
-                                             "value":  “NULL"
+                                             "value":  "NULL"
                                          }
                    }
 }
