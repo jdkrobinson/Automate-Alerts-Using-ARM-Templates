@@ -14,7 +14,7 @@ Next, lets create two JSON files, one will be parameters.json and the other temp
 Now this portion of the code targets only Virtual Machines, but if you want to target additional resource types. Follow this link to view all the supported metrics for Azure Monitor, choose the resource type and metric and give all the desired changes inside of the script.
 
 Change this line: 
-$VMColl = Get-AzureRmResource -ResourceType "YOUR DESIRED RESOURCE" | Select-Object -Property ResourceId,Name
+$PublicIPs = Get-AzResource -ResourceType "YOUR DESIRED RESOURCE" | Select-Object -Property ResourceId,Name
 
 Supported Metrics and Resources:
 https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-near-real-time

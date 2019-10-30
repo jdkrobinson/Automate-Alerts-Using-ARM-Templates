@@ -24,7 +24,7 @@ $PublicIPs = Get-AzResource -ResourceType "Microsoft.Network/publicIPAddresses" 
 Write-Host "Creating Metric Alerts for Public IPs"
 
 ################## DDoS FOR PUBLIC IPs ##############################
-$metricName = "Under DDoS attack or not"
+$metricName = "IfUnderDDoSAttack"
 $threshold = "0"
 $actionGroup = Get-AzActionGroup | Out-GridView -PassThru #User selects Action group
 $actionGroupId = $actionGroup.Id
