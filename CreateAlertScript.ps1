@@ -1,7 +1,6 @@
 #Import modules
 # Import-Module Az 
 Import-Module Az.Monitor
-Install-Module -Name Az.AlertsManagement
 
 #Reference related scripts
 $connectScript = $PSScriptRoot + "\Connect-Subscription.ps1"
