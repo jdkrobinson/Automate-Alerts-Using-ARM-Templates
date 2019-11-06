@@ -30,7 +30,7 @@ function Test-MyAccount {
         $subscription,
         $profile
     )
-    $resourceGroups = Get-AzResouceGroup -ErrorAction SilentlyContinue
+    $resourceGroups = Get-AzResourceGroup -ErrorAction SilentlyContinue
     if ($null -eq $resourceGroups){
         Write-Warning "There was an issue getting resources. Attempting Azure log in again"
         Clear-AzContext -Force
