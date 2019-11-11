@@ -18,9 +18,10 @@ function Confirm-Context {
 function Connect-MyAccount {
     Clear-AzContext #remove all other contexts, to avoid confusion and complication
     $Environment = 'AzureCloud'        
-    $profile = Connect-AzAccount -Environment $Environment
+    $profile = Connect-AzAccount -Environment $Environment -ErrorAction Inquire
     $subscription = Get-AzSubscription |  Out-GridView -PassThru
-    Set-AzContext -Tenant $subscription.TenantId -SubscriptionId $subscription.Id -DefaultProfile $profile
+    $output = "Tenant is " + $subscription.TenantId + ". Subscription is " + $subscription.Id ; Write-Verbose $output
+    Set-AzContext -TenantId $subscription.TenantId -SubscriptionId $subscription.SubscriptionId
     Write-Host "Logged in to Azure." -ForegroundColor Green
     Test-MyAccount -subscription $subscription -profile $profile
 }
@@ -35,7 +36,7 @@ function Test-MyAccount {
         Write-Warning "There was an issue getting resources. Attempting Azure log in again"
         Clear-AzContext -Force
         $Environment = 'AzureCloud'    
-        $profile = Connect-AzAccount -Environment $Environment -TenantId $subscription.TenantId -SubscriptionId $subscription.Id
+        $profile = Connect-AzAccount -Environment $Environment -TenantId $subscription.TenantId -SubscriptionId $subscription.Id  -ErrorAction Inquire
         Write-Host "Successfully logged in to Azure." -ForegroundColor Green
     }
     Write-Output "======================= Context is now: ======================="
